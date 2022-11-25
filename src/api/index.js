@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const API_CLIENT = axios.create({
-    baseURL: import.meta.env.VITE_SERVER_URL,
+    baseURL: process.env.VUE_APP_SERVER_URL,
 })
 
 API_CLIENT.interceptors.request.use(
@@ -10,8 +10,6 @@ API_CLIENT.interceptors.request.use(
       if (token) {
          config.headers.Authorization = `Bearer ${token}`
          config.headers["Content-Type"] = "application/json"
-      } else {
-        
       }
       return config
     }

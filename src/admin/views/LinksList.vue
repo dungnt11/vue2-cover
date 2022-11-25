@@ -58,14 +58,14 @@
       </div>
       <div class="input-wrapper">
         <label>Mở trang mới: </label>
-        <el-checkbox v-model="isOpenNewPage">{{
-          isOpenNewPage ? "Bật" : "Tắt"
+        <el-checkbox v-model="isOpenNewPageModal">{{
+          isOpenNewPageModal ? "Bật" : "Tắt"
         }}</el-checkbox>
       </div>
       <div class="input-wrapper">
         <label>Mới: </label>
-        <el-checkbox v-model="isNewPage">{{
-          isNewPage ? "Bật" : "Tắt"
+        <el-checkbox v-model="isNewPageModal">{{
+          isNewPageModal ? "Bật" : "Tắt"
         }}</el-checkbox>
       </div>
 
@@ -85,8 +85,8 @@ export default {
       centerDialogVisible: false,
       moment,
       tableData: [],
-      isOpenNewPage: false,
-      isNewPage: false,
+      isOpenNewPageModal: false,
+      isNewPageModal: false,
       selectedItem: null,
       name: "",
       url: "",
@@ -117,8 +117,8 @@ export default {
       this.selectedItem = row;
       this.name = row.name;
       this.url = row.url;
-      this.isOpenNewPage = row.isOpenNewPage;
-      this.isNewPage = row.isNewPage;
+      this.isOpenNewPageModal = row.isOpenNewPageModal;
+      this.isNewPageModal = row.isNewPageModal;
       this.centerDialogVisible = true;
     },
 

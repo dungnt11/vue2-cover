@@ -94,7 +94,7 @@ export default {
       } 
       
       else if(e.code == "Enter"){
-        this.socket.emit("message", this.chatData, (res) => {
+        this.socket.emit("message", this.chatData, () => {
           this.messages.push({
             from: "Bạn",
             text: this.chatData,
@@ -107,7 +107,7 @@ export default {
     },
 
     sendLike(){
-       this.socket.emit("message", "👍", (res) => {
+       this.socket.emit("message", "👍", () => {
           this.messages.push({
             from: "Bạn",
             text: "👍",
@@ -117,7 +117,7 @@ export default {
     }
   },
   mounted() {
-    this.socket = io(import.meta.env.VITE_SOCKET_SERVER_URL, {
+    this.socket = io(process.env.VUE_APP_SOCKET_SERVER_URL, {
       autoConnect: true,
       secure: true,
       auth: {
@@ -194,7 +194,7 @@ export default {
     width: calc(var(--width-container, 600px) - 55px);
     textarea {
       font-family: inherit;
-      background-color: #fff-1;
+      background-color: #F7F7FC;
       width: calc(100% - 50px);
       outline: none;
       border: none;

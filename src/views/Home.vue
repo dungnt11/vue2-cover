@@ -23,7 +23,7 @@ import HomeTitle from "../components/Home/Title.vue";
 import HomeReviews from "../components/Home/Reviews.vue";
 import HomeChat from "../components/Home/Chat.vue";
 export default {
-  name: "Home",
+  name: "HomeApp",
   components: {
     Header,
     HomeTitle,

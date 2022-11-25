@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="header">
-      <img src="/img/logo.png" alt="Logo" />
+      <img src="@/assets/image/logo.png" alt="Logo" />
       <div class="right">
         <template v-if="!isLogin">
           <button class="btn-signup" @click="openModalSignup()">Đăng ký</button>
@@ -191,7 +191,7 @@ const defaultErrorSignin = {
   password: null,
 };
 export default {
-  name: "Header",
+  name: "HeaderApp",
   components: {
     VueBottomSheet,
     VueRecaptcha
@@ -214,7 +214,7 @@ export default {
   }),
 
   created(){
-    this.isLogin = localStorage.hasOwnProperty('token');
+    this.isLogin = !!localStorage.getItem('token');
   },
   mounted() {},
   methods: {
@@ -243,7 +243,7 @@ export default {
     },
 
     submitSignup() {
-      const phoneRegExp = /^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/;
+      const phoneRegExp = /^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s./0-9]*$/;
       const validateSchema = yup.object().shape({
         username: yup.string().required("Vui lòng nhập lại tên đăng nhập"),
         phone: yup
@@ -272,7 +272,7 @@ export default {
           },
           { abortEarly: false }
         )
-        .then((value) => {
+        .then(() => {
           this.errorValidate = { ...defaultErrorSignup };
           API_CLIENT.post("/api/user/create", {
             username: this.usernameSignup,
@@ -320,7 +320,7 @@ export default {
           },
           { abortEarly: false }
         )
-        .then((value) => {
+        .then(() => {
           this.errorValidateSignin = { ...defaultErrorSignin };
           API_CLIENT.post("/api/user/login", {
             username: this.usernameSignin,
@@ -333,7 +333,7 @@ export default {
                 localStorage.setItem("token", response.data.data.token);
               }
             })
-            .catch((error) => {
+            .catch(() => {
               this.errorValidateSignin.username =
                 "Sai tên đăng nhập hoặc mật khẩu";
               this.errorValidateSignin.password =
@@ -437,7 +437,7 @@ input[type="number"] {
       color: #50ABFF;
       padding: 12px;
       font-size: 0.75rem;
-      background-color: #2196f3-bg;
+      background-color: #50ABFF;
       border-radius: 8px;
       margin: 0 6px;
       cursor: pointer;
@@ -445,7 +445,7 @@ input[type="number"] {
 
     .btn-signin {
       color: #5FD866;
-      background-color: #5FD866-bg;
+      background-color: rgba(95, 216, 102, 0.1);
     }
     .btn-logout {
        color: #FF6D6C;

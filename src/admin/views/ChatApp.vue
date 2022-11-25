@@ -158,7 +158,7 @@ export default {
     },
 
     deleteUser(id) {
-      Api.deleteFakeUser(id).then((res) => {
+      Api.deleteFakeUser(id).then(() => {
         this.tableDataUser = this.tableDataUser.filter(
           (item) => item._id != id
         );
@@ -172,7 +172,7 @@ export default {
     },
 
     deleteChat(id) {
-      Api.deleteChat(id).then((res) => {
+      Api.deleteChat(id).then(() => {
         this.tableDataChat = this.tableDataChat.filter(
           (item) => item._id != id
         );

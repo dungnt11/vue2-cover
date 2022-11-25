@@ -13,12 +13,12 @@ const createRouter = () =>
       },
       {
         path: "/admin",
-        component: () => import("@/admin/Layout.vue"),
+        component: () => import("@/admin/LayoutApp.vue"),
         children: [
           { 
             path: 'login',
             name: 'admin-login',
-            component: () => import("@/admin/Login.vue"), 
+            component: () => import("@/admin/LoginApp.vue"), 
             
           },
 
@@ -45,13 +45,13 @@ const createRouter = () =>
               { 
                 path: 'comments',
                 name: 'comments',
-                component: () => import("@/admin/views/Comments.vue"), 
+                component: () => import("@/admin/views/CommentsApp.vue"), 
                 meta: { requiresAuth: true }
               },
               { 
                 path: 'chat',
                 name: 'chat',
-                component: () => import("@/admin/views/Chat.vue"), 
+                component: () => import("@/admin/views/ChatApp.vue"), 
                 meta: { requiresAuth: true }
               },
             ]

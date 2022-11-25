@@ -33,7 +33,7 @@
     </div>
 
     <div class="main">
-      <header>
+      <header-app>
         <div class="profile"> 
           <el-dropdown :hide-on-click="false" @command="handleCommand" >
             <span class="el-dropdown-link">
@@ -47,7 +47,7 @@
             </el-dropdown-menu>
           </el-dropdown>
         </div>
-      </header>
+      </header-app>
       <main>
         <router-view></router-view>
       </main>
@@ -57,9 +57,9 @@
 </template>
 
 <script>
-import Header from "../components/Header.vue";
+import HeaderApp from "../components/Header.vue";
 export default {
-  components: { Header },
+  components: { HeaderApp },
   methods: {
     handleOpen(key, keyPath) {
       console.log(key, keyPath);
